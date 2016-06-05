@@ -1,0 +1,20 @@
+.header {
+	text-align: center;
+	width: 50em;
+	margin: 0 auto 0 auto;
+	border: 1px solid black;
+}
+
+.words {
+	text-align: left;
+	width: 50em;
+	margin: 0 auto 0 auto;
+	border: 1px solid black;
+}
+
+.text {
+	text-align: left;
+	width: 50em;
+	margin: 15px auto 0 auto;
+	border: 1px solid black;
+}
