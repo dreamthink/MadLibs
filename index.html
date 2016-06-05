@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="">
 <head>
 	<meta charset="UTF-8">
 	<title>Mad Libs</title>
-	<link rel="stylesheet" href="css/styles.css">
+    <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	<div class="container">
@@ -11,25 +12,26 @@
 			<img src="images/smileyface.jpg">
 			<img src="images/ngmadlibslogo.jpg">
 		</div>
-	<div class="words">
-		<h1>Provide the following words:</h1>
-		<input type="text" placeholder="adjective">
-		<input type="text" placeholder="plural noun">
-		<input type="text" placeholder="noun">
-		<input type="text" placeholder="adjective">
-		<input type="text" placeholder="part of the body">
-		<input type="text" placeholder="adjective">
-		<input type="text" placeholder="plural noun">
-		<input type="text" placeholder="part of the body">
-		<input type="text" placeholder="adjective">
-		<input type="text" placeholder="adverb">
-		<input type="text" placeholder="noun">
-		<input type="text" placeholder="part of the body (plural)">
-		<input type="text" placeholder="adverb">
-	</div>
-	<div class="text">
-	The Force is a mystical, {{ adjective }} power. As Jedi Master Obi-Wan Kenobi once said, "The Force is an energy field, created by all living {{ plural noun }}, that surrounds us, penetrates us, and binds the {{ noun }} together." Using the power of the Force, a Jedi can do many {{ speedy }} things, like using the Force to exercise {{ part of the body }} control over {{ adjective }}-minded {{ plural noun }}. A Jedi can also use the Force to move objects with his or her {{ part of the body }}. It doesn't matter how {{ adjective }} these objects are; it only matters how [{ adverb }} the Jedi believes in the Force. Most importantly, the Force teaches a Jedi to rely on his or her feelings. As Obi-Wan Kenobi told his student, Luke {{ noun }}-walker: "Your {{ part of the body (plural) }} can deceive you. Don't trust them." Instead, a Jedi should {{ adverb }} trust in the Force.
-
+		<div class="words">
+			<h1>Provide the following words:</h1>
+			<input type="text" ng-model="adjective1" placeholder="adjective">
+			<input type="text" ng-model="pluralnoun1" placeholder="plural noun">
+			<input type="text" ng-model="noun1" placeholder="noun">
+			<input type="text" ng-model="adjective2" placeholder="adjective">
+			<input type="text" ng-model="partofbody1" placeholder="part of the body">
+			<input type="text" ng-model="adjective3" placeholder="adjective">
+			<input type="text" ng-model="pluralnoun2" placeholder="plural noun">
+			<input type="text" ng-model="partofbody2" placeholder="part of the body">
+			<input type="text" ng-model="adjective4" placeholder="adjective">
+			<input type="text" ng-model="adverb1" placeholder="adverb">
+			<input type="text" ng-model="noun2" placeholder="noun">
+			<input type="text" ng-model="partofbodyplural" placeholder="part of the body (plural)">
+			<input type="text" ng-model="adverb2" placeholder="adverb">
+			<br><br>
+		</div>
+		<div class="text">
+		The Force is a mystical, {{ adjective1 }} power. As Jedi Master Obi-Wan Kenobi once said, "The Force is an energy field, created by all living {{ pluralnoun1 }}, that surrounds us, penetrates us, and binds the {{ noun1 }} together." Using the power of the Force, a Jedi can do many {{ adjective2 }} things, like using the Force to exercise {{ partofbody1 }} control over {{ adjective3 }}-minded {{ pluralnoun2 }}. A Jedi can also use the Force to move objects with his or her {{ partofbody2 }}. It doesn't matter how {{ adjective4 }} these objects are; it only matters how [{ adverb1 }} the Jedi believes in the Force. Most importantly, the Force teaches a Jedi to rely on his or her feelings. As Obi-Wan Kenobi told his student, Luke {{ noun2 }}-walker: "Your {{ partofbodyplural }} can deceive you. Don't trust them." Instead, a Jedi should {{ adverb2 }} trust in the Force.
+		</div>
 	</div>
 </body>
 </html>
