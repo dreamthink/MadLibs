@@ -1,0 +1,21 @@
+.header {
+	text-align: center;
+}
+
+.wordsection {
+	text-align: left;
+	width: 50em;
+	margin: 0 auto 0 auto;
+	border: 1px solid black;
+	font-family: Arial;
+	font-size: 1em;
+}
+
+.textsection {
+	text-align: left;
+	width: 50em;
+	margin: 10px auto 0 auto;
+	border: 1px solid black;
+	font-family: Arial;
+	font-size: 1em;
+}
