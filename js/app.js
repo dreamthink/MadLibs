@@ -1,1 +1,4 @@
-app.module()
+angular.module("myApp", [])
+	.controller("myController", function() {
+
+	});
