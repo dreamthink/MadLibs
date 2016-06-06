@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<div class="container" ng-controller="myController">
+	<div class="container" ng-controller="myController as control">
 		<div class="header">
 			<img src="images/smileyface.jpg">
 			<img src="images/ngmadlibslogo.jpg">
 		</div>
+		<div class="title">
+			{{ control.title }}
+		</div>
+
 		<div class="words">
 			<h1>Provide the following words:</h1>
 			<input type="text" ng-model="femaleName" placeholder="female name">
@@ -27,7 +31,7 @@
 			<br><br>
 		</div>
 		<div class="text">
-		<p>{{femaleName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{femaleName}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead. </p> <p>What a great decision! With her new skills, {{femaleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
+		<p>{{ femaleName}} was a {{jobTitle}} who loved technology. Although she loved parts of her job, she absolutely hated {{tediousTask}} and {{dirtyTask}}. So, {{femaleName}} met with her life mentor {{celebrity}} who told her to learn how to {{uselessSkill}} with Thinkful. Thinkful didn't offer a course on {{uselessSkill}} so she studied programming instead. </p> <p>What a great decision! With her new skills, {{femaleName}} built a(n) {{adjective}} robot named {{obnoxiousCelebrity}} that not only loved {{dirtyTask}} but did it {{hugeNumber}} times faster.</p>
 		</div>
 	</div>
 </body>
