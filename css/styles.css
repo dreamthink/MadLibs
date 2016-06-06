@@ -1,12 +1,22 @@
 .header {
 	text-align: center;
+<<<<<<< HEAD
 }
 
 .wordsection {
+=======
+	width: 50em;
+	margin: 0 auto 0 auto;
+	border: 1px solid black;
+}
+
+.words {
+>>>>>>> add-a-controller
 	text-align: left;
 	width: 50em;
 	margin: 0 auto 0 auto;
 	border: 1px solid black;
+<<<<<<< HEAD
 	font-family: Arial;
 	font-size: 1em;
 }
@@ -18,4 +28,13 @@
 	border: 1px solid black;
 	font-family: Arial;
 	font-size: 1em;
+=======
+}
+
+.text {
+	text-align: left;
+	width: 50em;
+	margin: 15px auto 0 auto;
+	border: 1px solid black;
+>>>>>>> add-a-controller
 }
