@@ -1,34 +1,37 @@
-.header {
+.container {
+	width: 60em;
+	margin-top: 1em;
+	padding: 2em;
+	border: 3px solid black;
+}
+
+.row {
+	margin: 0;
+	padding: 0;
+/*	border: 1px solid red;*/
+}
+
+.show-grid {
+	border: 1px solid black;
 	text-align: center;
 }
 
-.title {
-	width: 50em;
-	margin: 0 auto 0 auto;
+img {
+	margin: 0px;
+	padding: 0px;
 }
 
-.wordsection {
-	width: 50em;
-	margin: 0 auto 0 auto;
-	border: 1px solid black;
-}
-
-.words {
-	text-align: left;
-	width: 50em;
-	margin: 0 auto 0 auto;
-	border: 1px solid black;
+.titlename {
 	font-family: Arial;
-	font-size: 1em;
+	font-size: 3em;
 }
 
-.textsection {
-	text-align: left;
-	width: 50em;
-	margin: 10px auto 0 auto;
+.text-center {
+	text-align: center;
+}
+
+.word-input {
 	border: 1px solid black;
-	font-family: Arial;
-	font-size: 1em;
 }
 
 .text {
@@ -36,4 +39,10 @@
 	width: 50em;
 	margin: 15px auto 0 auto;
 	border: 1px solid black;
+	display: none;
 }
+
+.ng-invalid.ng-dirty {
+	border-color: red;
+}
+
