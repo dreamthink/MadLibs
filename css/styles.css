@@ -39,10 +39,23 @@ img {
 	width: 50em;
 	margin: 15px auto 0 auto;
 	border: 1px solid black;
-	display: none;
 }
 
 .ng-invalid.ng-dirty {
 	border-color: red;
 }
 
+.selectMale {
+	background-color: lightblue;
+	outline: none;
+}
+
+.selectFemale {
+	background-color: pink;
+	outline: none;
+}
+
+span {
+	font-weight: bold;
+	text-decoration: underline;
+}

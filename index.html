@@ -10,43 +10,38 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-	<div class="container" ng-controller="myController as madlibCtrl">
+	<div class="container" ng-controller="MyController as madlibCtrl">
 		<div class="row">
 			<div class="col-md-3">
 				<img class="img-responsive" src="images/smileyface.jpg" alt="smiley face">
 			</div>
 			<div class="col-md-9">
-				<div class="row">
-					<div class="col-md-12">
-						<img class="img-responsive logo" src="images/madlibslogo.jpg" alt="mad libs logo">
-					</div>
-					<div class="row">
-						<div class="col-md-12 titlename text-center">
-						Automate This!
-						</div>
-					</div>
-				</div>
+				<img class="img-responsive logo" src="images/madlibslogo.jpg" alt="mad libs logo">
 			</div>
 		</div>
 		<div class="word-input">
+		<form name="inputForm" class="css-form" novalidate ng-submit="submitForm(inputForm.$valid)">
+		<p>Select gender:</p>
+		<button ng-click="madlibCtrl.assignGender('male')" ng-class="{selectMale: madlibCtrl.gender==='male'}">Male</button>
+		<button ng-click="madlibCtrl.assignGender('female')" ng-class="{selectFemale: madlibCtrl.gender==='female'}">Female</button>
 		<h4>Provide the following words:</h4>
-			<form name="inputForm" class="css-form" novalidate ng-submit="submitForm(inputForm.$valid)">
+			
 				<div class="row form-group">
-					<input type="text" ng-model="femaleName" name="femaleName" placeholder="female name" novalidate required>
-					<input type="text" ng-model="jobTitle" name="jobTitle" placeholder="job title" required>
-					<input type="text" ng-model="tediousTask" name="tediousTask" placeholder="tedious task" required>
-					<input type="text" ng-model="dirtyTask" name="dirtyTask" placeholder="dirty task" required>
-					<input type="text" ng-model="celebrity" name="celebrity" placeholder="celebrity" required>
-					<input type="text" ng-model="uselessSkill" name="uselessSkill" placeholder="useless skill" required>
-					<input type="text" ng-model="adjective" name="adjective" placeholder="adjective" required>
-					<input type="text" ng-model="obnoxiousCelebrity" name="obnoxiousCelebrity" placeholder="obnoxious celebrity" required>
-					<input type="text" ng-model="hugeNumber" name="hugeNumber" placeholder="huge number" required>
+					<input type="text" ng-model="madlibCtrl.name" name="femaleName" placeholder="female name" novalidate required>
+					<input type="text" ng-model="madlibCtrl.jobTitle" name="jobTitle" placeholder="job title" required>
+					<input type="text" ng-model="madlibCtrl.tediousTask" name="tediousTask" placeholder="tedious task" required>
+					<input type="text" ng-model="madlibCtrl.dirtyTask" name="dirtyTask" placeholder="dirty task" required>
+					<input type="text" ng-model="madlibCtrl.celebrity" name="celebrity" placeholder="celebrity" required>
+					<input type="text" ng-model="madlibCtrl.uselessSkill" name="uselessSkill" placeholder="useless skill" required>
+					<input type="text" ng-model="madlibCtrl.adjective" name="adjective" placeholder="adjective" required>
+					<input type="text" ng-model="madlibCtrl.obnoxiousCelebrity" name="obnoxiousCelebrity" placeholder="obnoxious celebrity" required>
+					<input type="text" ng-model="madlibCtrl.hugeNumber" name="hugeNumber" placeholder="huge number" required>
 					<button type="submit" class="btn btn-primary">Generate my Mad Lib</button>
 				</div>
 			</form>
 		</div>
 	<div class="text">
-	<p>{{ femaleName }} was a {{ jobTitle }} who loved technology. Although she loved parts of her job, she absolutely hated {{ tediousTask }} and {{ dirtyTask }}. So, {{ femaleName }} met with her life mentor {{ celebrity }} who told her to learn how to {{ uselessSkill }} with Thinkful. Thinkful didn't offer a course on {{ uselessSkill }} so she studied programming instead. </p> <p>What a great decision! With her new skills, {{ femaleName }} built a(n) {{ adjective }} robot named {{ obnoxiousCelebrity }} that not only loved {{ dirtyTask }} but did it {{ hugeNumber }} times faster.</p>
+	<p><span>{{ madlibCtrl.name }}</span> was a <span>{{ madlibCtrl.jobTitle }}</span> who loved technology. Although {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} loved parts of {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} job, {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} absolutely hated <span>{{ madlibCtrl.tediousTask }}</span> and <span>{{ madlibCtrl.dirtyTask }}</span>. So, <span>{{ madlibCtrl.name }}</span> met with {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} life mentor <span>{{ madlibCtrl.celebrity }}</span> who told {{ madlibCtrl.gender==='female' ? 'her' : 'him'}} to learn how to <span>{{ madlibCtrl.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span>{{ madlibCtrl.uselessSkill }}</span> so {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} studied programming instead. </p> <p>What a great decision! With {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} new skills, <span>{{ madlibCtrl.name }}</span> built a(n) <span>{{ madlibCtrl.adjective }}</span> robot named <span>{{ madlibCtrl.obnoxiousCelebrity }}</span> that not only loved <span>{{ madlibCtrl.dirtyTask }}</span> but did it <span>{{ madlibCtrl.hugeNumber }}</span> times faster.</p>
 	</div>
 	</div>
 </body>
