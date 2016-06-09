@@ -8,7 +8,7 @@ var app = angular.module("myApp", []);
 			this.uselessSkill = "useless skill";
 			this.adjective = "adjective";
 			this.obnoxiousCelebrity = "obnoxious celebrity";
-			this.hugeNumber = "huge number";
+			this.hugeNumber = 10000;
 
 
 	// select gender	
@@ -16,5 +16,12 @@ var app = angular.module("myApp", []);
 		this.assignGender = function(gender) {
 			this.gender = gender;
 		};
-		console.log(this.gender);
+
+
+	// on form submit, do this
+		this.showTextSection = false;
+
+		this.displayMadLib = function () {
+			this.showTextSection = true;
+		};
 });

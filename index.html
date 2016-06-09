@@ -19,15 +19,14 @@
 				<img class="img-responsive logo" src="images/madlibslogo.jpg" alt="mad libs logo">
 			</div>
 		</div>
-		<div class="word-input">
-		<form name="inputForm" class="css-form" novalidate ng-submit="submitForm(inputForm.$valid)">
+		<div class="word-input" ng-hide="">
 		<p>Select gender:</p>
 		<button ng-click="madlibCtrl.assignGender('male')" ng-class="{selectMale: madlibCtrl.gender==='male'}">Male</button>
 		<button ng-click="madlibCtrl.assignGender('female')" ng-class="{selectFemale: madlibCtrl.gender==='female'}">Female</button>
-		<h4>Provide the following words:</h4>
-			
+		<form name="madlibCtrl.myForm" class="css-form" novalidate ng-submit="madlibCtrl.myForm.$valid && madlibCtrl.displayMadLib()">
+			<h4>Provide the following words:</h4>
 				<div class="row form-group">
-					<input type="text" ng-model="madlibCtrl.name" name="femaleName" placeholder="female name" novalidate required>
+					<input type="text" ng-model="madlibCtrl.name" name="name" placeholder="name" novalidate required>
 					<input type="text" ng-model="madlibCtrl.jobTitle" name="jobTitle" placeholder="job title" required>
 					<input type="text" ng-model="madlibCtrl.tediousTask" name="tediousTask" placeholder="tedious task" required>
 					<input type="text" ng-model="madlibCtrl.dirtyTask" name="dirtyTask" placeholder="dirty task" required>
@@ -35,14 +34,29 @@
 					<input type="text" ng-model="madlibCtrl.uselessSkill" name="uselessSkill" placeholder="useless skill" required>
 					<input type="text" ng-model="madlibCtrl.adjective" name="adjective" placeholder="adjective" required>
 					<input type="text" ng-model="madlibCtrl.obnoxiousCelebrity" name="obnoxiousCelebrity" placeholder="obnoxious celebrity" required>
-					<input type="text" ng-model="madlibCtrl.hugeNumber" name="hugeNumber" placeholder="huge number" required>
-					<button type="submit" class="btn btn-primary">Generate my Mad Lib</button>
+					<input type="number" ng-model="madlibCtrl.hugeNumber" ng-minlength="5" name="hugeNumber" placeholder="huge number" required>
+					<input type="submit" class="btn btn-primary" value="Submit">
 				</div>
 			</form>
 		</div>
-	<div class="text">
-	<p><span>{{ madlibCtrl.name }}</span> was a <span>{{ madlibCtrl.jobTitle }}</span> who loved technology. Although {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} loved parts of {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} job, {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} absolutely hated <span>{{ madlibCtrl.tediousTask }}</span> and <span>{{ madlibCtrl.dirtyTask }}</span>. So, <span>{{ madlibCtrl.name }}</span> met with {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} life mentor <span>{{ madlibCtrl.celebrity }}</span> who told {{ madlibCtrl.gender==='female' ? 'her' : 'him'}} to learn how to <span>{{ madlibCtrl.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span>{{ madlibCtrl.uselessSkill }}</span> so {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} studied programming instead. </p> <p>What a great decision! With {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} new skills, <span>{{ madlibCtrl.name }}</span> built a(n) <span>{{ madlibCtrl.adjective }}</span> robot named <span>{{ madlibCtrl.obnoxiousCelebrity }}</span> that not only loved <span>{{ madlibCtrl.dirtyTask }}</span> but did it <span>{{ madlibCtrl.hugeNumber }}</span> times faster.</p>
-	</div>
+		<div class="text" ng-show="madlibCtrl.showTextSection">
+			<p><span>{{ madlibCtrl.name }}</span> was a <span>{{ madlibCtrl.jobTitle }}</span> who loved technology. Although {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} loved parts of {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} job, {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} absolutely hated <span>{{ madlibCtrl.tediousTask }}</span> and <span>{{ madlibCtrl.dirtyTask }}</span>. So, <span>{{ madlibCtrl.name }}</span> met with {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} life mentor <span>{{ madlibCtrl.celebrity }}</span> who told {{ madlibCtrl.gender==='female' ? 'her' : 'him'}} to learn how to <span>{{ madlibCtrl.uselessSkill }}</span> with Thinkful. Thinkful didn't offer a course on <span>{{ madlibCtrl.uselessSkill }}</span> so {{ madlibCtrl.gender==='female' ? 'she' : 'he'}} studied programming instead. </p> <p>What a great decision! With {{ madlibCtrl.gender==='female' ? 'her' : 'his'}} new skills, <span>{{ madlibCtrl.name }}</span> built a(n) <span>{{ madlibCtrl.adjective }}</span> robot named <span>{{ madlibCtrl.obnoxiousCelebrity }}</span> that not only loved <span>{{ madlibCtrl.dirtyTask }}</span> but did it <span>{{ madlibCtrl.hugeNumber }}</span> times faster.</p>
+		</div>
+		<div class="errors">
+			This is the error message section:
+			<ul>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.name.$invalid">Please enter a name.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.jobTitle.$invalid">Please enter a job title.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.tediousTask.$invalid">Please enter a tedious task.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.dirtyTask.$invalid">Please enter a dirty task.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.celebrity.$invalid">Please enter a celebrity.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.uselessSkill.$invalid">Please enter a useless skill.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.adjective.$invalid">Please enter an adjective.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.obnoxiousCelebrity.$invalid">Please enter an obnoxious celebrity.</li>
+				<li ng-if="madlibCtrl.myForm.$submitted && madlibCtrl.myForm.hugeNumber.$invalid">Please enter a number at least 5 digits long.</li>
+			</ul>
+		</div>
+
 	</div>
 </body>
 </html>
